@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusen</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./material-kit.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <div
+    class="modal fade"
+    id="addPostModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addPostModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPostModalLabel">Add</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="title">タイトル</label>
+          <input id="title" name="title" type="text" class="form-control" />
+          <label for="snt">内容</label>
+          <textarea class="form-control" id="snt" rows="15"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <input
+            type="button"
+            class="btn btn-primary"
+            value="Send"
+            id="addButton"
+            data-dismiss="modal"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <body id="body" class="index-page sidebar-collapse">
+    <nav
+      class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
+      color-on-scroll="100"
+      id="sectionsNav"
+    >
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand" href="/" id="headerLogo">
+            Fusen
+          </a>
+          <span id="loggedInUserName"></span>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="dropdown nav-item" id="dropdown-menu">
+              <a
+                href="#"
+                class="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
+                <i class="material-icons">apps</i> Detail
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="#" class="dropdown-item" id="dropDownAddPost">
+                  <i class="material-icons">layers</i> 新規投稿
+                </a>
+                <span class="dropdown-item" id="seeMyPosts">
+                  <i class="material-icons">content_paste</i> 自分の投稿
+                </span>
+              </div>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link" id="homeButton">Home</span>
+            </li>
+            <li class="nav-item login-link" id="login-link">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item register-link" id="register-link">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item logout-link" id="logout-link">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="page-header header-filter clear-filter purple-filter"
+      data-parallax="true"
+      id="mainContents"
+      style="background-image: url('https://cdn.glitch.com/3f1a0977-0515-40d3-ab86-a55096c9e85a%2Fbg2.jpg?v=1601151715970');"
+    >
+      <div class="container">
+        <div class="brand">
+          <main>
+            <div class="text-right m-3">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#addPostModal"
+                id="addModal"
+              >
+                新規追加
+              </button>
+            </div>
+
+            <div class="alert alert-info" id="addModalAlert">
+              <div class="container">
+                <div class="alert-icon">
+                  <i class="material-icons">info_outline</i>
+                </div>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true"
+                    ><i class="material-icons">clear</i></span
+                  >
+                </button>
+                新規投稿には<a href="/login" id="alertLoginLink">ログイン</a
+                >が必要です
+              </div>
+            </div>
+
+            <div id="alertArea"></div>
+
+            <div id="list" class="row"></div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#showDetailModal"
+      id="hideButton"
+    >
+      Cant see this button
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#showEditDetailModal"
+      id="editHideButton"
+    >
+      Cant see this button
+    </button>
+
+    <script src="/script.js" defer></script>
+    <script src="./jquery.js"></script>
+    <script src="./popper.js"></script>
+    <script src="./bootstrap-material-design.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="./material-kit.js"></script>
+  </body>
+</html>
