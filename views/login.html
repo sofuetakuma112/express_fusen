@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログインフォーム</title>
+    <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="./material-kit.css" />
+  </head>
+  <body>
+    <main>
+      <div
+        class="page-header header-filter clear-filter purple-filter"
+        data-parallax="true"
+        style="background-image: url('https://cdn.glitch.com/3f1a0977-0515-40d3-ab86-a55096c9e85a%2Fcity-profile.jpg?v=1601151728481');"
+      >
+        <div class="container">
+          <div class="brand">
+            <h1>
+              ログインフォーム
+            </h1>
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  name="email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  name="password"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="mt-3">
+              <p>
+                アカウントをお持ちで無い場合は
+                <a href="/register" class="loginLink">新規登録</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/script.js" defer></script>
+    <script src="./jquery.js"></script>
+    <script src="./popper.js"></script>
+    <script src="./bootstrap-material-design.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="./material-kit.js"></script>
+  </body>
+</html>

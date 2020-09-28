@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  overflow-y: hidden;
+}
+
+#headerLogo {
+  font-family: "Kaushan Script", cursive;
+  font-size: 26px;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+#hideButton {
+  visibility: hidden;
+}
+
+#editHideButton {
+  visibility: hidden;
+}
+
+#postListTitle {
+  color: #1e90ff;
+}
+
+#postDetailTitle {
+  color: #1e90ff;
+}
+
+#addModalAlert {
+  display: none;
+}
+
+#list {
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+::-webkit-scrollbar {
+  width: 10px; // manage scrollbar width here
+}
+::-webkit-scrollbar * {
+  background: transparent; // manage scrollbar background color here
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(
+    255,
+    0,
+    0,
+    0.1
+  ) !important; // manage scrollbar thumb background color here
+}
+
+#mainContents {
+  padding-top: 80px;
+}
+
+#seeMyPosts {
+  cursor: pointer;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.buttonPushed {
+  color: #dc143c;
+}
+
+#alertLoginLink {
+  color: #d2691e;
+}
+
+#alertLoginLink:hover {
+  opacity: 0.6;
+}
